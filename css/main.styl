@@ -1,0 +1,45 @@
+@import 'assets/imports.styl'
+@import 'css-assets/normalize.styl'
+
+@import 'css-assets/font/stylesheet.css'
+@import 'css-assets/general'
+@import 'css-assets/elements'
+@import 'css-assets/blocks'
+@import 'css-assets/cover'
+@import 'css-assets/peel'
+@import 'css-assets/layouts'
+@import 'css-assets/effects'
+@import 'css-assets/icons'
+body, html
+  height 100%
+
+color = #FC46AD
+pieGraphSize = 200px
+.pie-graph
+  border-radius 50%
+  width pieGraphSize
+  height pieGraphSize
+  margin 0 auto
+  position relative
+  top 50%
+  margin-top -(pieGraphSize/2)
+  display block
+  transform rotate(-90deg)
+
+PI = 3.141598
+.slice
+  stroke-width 20px
+  fill none
+  stroke-dasharray (2*PI*40)px
+  cursor pointer
+  &--1
+    stroke lighten(color, 10)
+    &:hover
+      stroke lighten(color, 12)
+  &--2
+    stroke color
+    stroke-dashoffset (2*PI*15)px
+    &:hover
+      stroke darken(color, 4)
+   
+ 

@@ -1,0 +1,300 @@
+// BLOCKS
+@import '../assets/imports.styl'
+
+.curtain
+	background white
+	position absolute
+	z-index 50
+	rect 100%
+	nw 0
+
+.scroll-suggest
+	width 25px
+	position absolute
+	z-index 40
+	bottom gs
+	left 50%
+	background url('i/scroll-suggest.svg') no-repeat center center
+	background-size 100% 100%
+	opacity .25
+	transform translateY(-5px)
+	&__content
+		padding-bottom 184.6153846%
+	&--mask
+		z-index 20
+		opacity 1
+		rect 64px
+		// width 70px
+		bottom 0
+		// border-radius 50%
+		margin-left - 21px
+		// hl green
+		background twitterColor
+
+.thread-left
+	width 8*gs
+	background url('i/thread1.svg') no-repeat center center
+	background-size 100% 100%
+	&__content
+		padding-bottom 100%
+
+.thread-right
+	width 2*gs
+	background url('i/thread2.svg') no-repeat center center
+	background-size 100% 100%
+	&__content
+		padding-bottom 316.6666667%
+
+.tag
+	width 200px
+	position absolute
+	background url('i/tag.svg') no-repeat center center
+	background-size 100% 100%
+	display block
+	.ie & 
+		background-image url('i/tag-ie.svg')
+	&__content
+		padding-bottom 180%
+	&__text
+		position absolute
+		bottom 4*gs
+		width 100%
+		text-align center
+		font-size 10px
+
+corner = 30*gs
+.bow
+	width 60*gs
+	position absolute
+	left - 25*gs
+	top corner - 35%
+	opacity .98
+	background url('i/bow.svg') no-repeat center center
+	background-size auto 100%
+	&__content
+		padding-bottom 58.7360595%
+	.tag
+		top 21*gs
+		left 19*gs
+		transform rotate(-20deg)
+		transform-origin center 8*gs
+		z-index 1
+	.thread-left, .thread-right
+		position absolute
+		top 20*gs
+		left corner - 6*gs + 1px
+		z-index 2
+	.thread-right
+		z-index 0
+		left corner + 2.5*gs + 1px
+		top 19.5*gs
+
+lineWidth = 75px
+.line-item
+	background rgba(dribbbleColor, .97)
+	position absolute
+	z-index 30
+	box-shadow 2px 2px 3px rgba(0,0,0,.15)
+	&:before, &:after
+		content ''
+		box-shadow inherit
+		background inherit
+		position absolute
+		width inherit
+		height inherit
+	&--vert
+		left corner
+		top  0%
+		width lineWidth
+		height 100%
+		transform-origin center top
+		&:before
+			top -100%
+			box-shadow 2px -3px 3px rgba(0,0,0,.15)
+		&:after
+			top 100%
+	&--hor
+		width 100%
+		left  0%
+		height lineWidth
+		top corner
+		&:before
+			left -100%
+			box-shadow 2px -3px 3px rgba(0,0,0,.15)
+		&:after
+			left 100%
+.svg-icon
+	&--twitter
+		fill twitterColor
+	&--dribbble
+		fill dribbbleColor
+	&--github
+		fill githubColor
+size = 7.5%
+.box-icon
+	width size
+	display block
+	position absolute
+	top 50%
+	left 50%
+	margin-top - (size/2)
+	&--one
+		margin-left - 2.5*size
+	&--two
+		margin-left - (size/2)
+	&--three
+		margin-left 1.5*size
+	&__content
+		padding-bottom 100%
+		z-index 1
+		position relative
+		border-radius 50%
+		box-shadow 2px 2px 2px rgba(0,0,0,.3)
+		&:hover
+			cursor pointer
+			.svg-icon
+				&--twitter
+					fill darken(twitterColor, 2)
+				&--dribbble
+					fill darken(dribbbleColor, 5)
+				&--github
+					fill darken(githubColor, 5)
+	&__shadow
+			content ''
+			position absolute
+			z-index 0
+			top 32%
+			left 35%
+			height 100%
+			// height 96px
+			width 200%
+			background url('i/icon-gradient.svg') no-repeat left top
+			background-size 100% 100%
+			transform rotate(20deg)
+		svg
+			rect 100%
+			position absolute
+			display block
+
+
+margin = 12px
+.box
+	transform-style preserve3d
+	position absolute
+	nw margin
+	se margin
+	perspective 1000px
+	
+	&__item
+		position absolute
+		&:after
+			content ''
+			// hl green
+			position absolute
+			nw 0
+			rect 100%
+			background url('i/shadow-mask.png') no-repeat center center
+			opacity .12
+			background-size 100% 100%
+		&--shadow
+			height 100%
+			width 100%
+			background url('i/box-shadow.png') no-repeat left center
+			background-size auto 100%
+			@media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi)
+				background url('i/box-shadow@2x.png') no-repeat left center
+				background-size auto 100%
+			box-shadow none
+			&:after
+				display none
+		&--base
+			left 12.95%
+			right 12.95%
+			top 12.95%
+			bottom 12.95%
+			background: #e3e3e3; /* Old browsers */
+			background: -moz-linear-gradient(left,  #dfdfdf 0%, #ededed 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dfdfdf), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(left,  #dfdfdf 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(left,  #dfdfdf 0%,#ededed 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(left,  #dfdfdf 0%,#ededed 100%); /* IE10+ */
+			background: linear-gradient(to right,  #dfdfdf 0%,#ededed 100%); /* W3C */
+			// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3e3e3', endColorstr='#ededed',GradientType=1 ); /* IE6-9 */
+			&:after
+				display none
+
+		&--left
+			nw 0
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(left,  #ffffff 0%, #e1e1e1 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(100%,#e1e1e1)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(left,  #ffffff 0%,#e1e1e1 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(left,  #ffffff 0%,#e1e1e1 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(left,  #ffffff 0%,#e1e1e1 100%); /* IE10+ */
+			background: linear-gradient(to right,  #ffffff 0%,#e1e1e1 100%); /* W3C */			
+			// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e1e1e1',GradientType=1 ); /* IE6-9 */
+		&--right
+			ne 0
+			background-image: -o-linear-gradient(0deg, #FFFFFF 0%, #e8e8e8 100%);
+			background-image: -moz-linear-gradient(0deg, #FFFFFF 0%, #e8e8e8 100%);
+			background-image: -webkit-linear-gradient(0deg, #FFFFFF 0%, #e8e8e8 100%);
+			background-image: -ms-linear-gradient(0deg, #FFFFFF 0%, #e8e8e8 100%);
+			background-image: linear-gradient(-90deg, #FFFFFF 0%, #e8e8e8 100%);
+			&:after
+				// display none
+				opacity .02
+		&--left, &--right
+			height 100%
+			width  12.95%
+		&--top
+			transform rotateX(-75.5deg)
+			transform-origin 50% top
+			nw 0
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(top,  #ffffff 0%, #e1e1e1 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e1e1e1)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #ffffff 0%,#e1e1e1 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  #ffffff 0%,#e1e1e1 100%); /* W3C */
+			&:after
+				transform rotate(180deg)
+				opacity .01
+			// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e1e1e1',GradientType=0 ); /* IE6-9 */
+		&--bottom
+			transform rotateX(75.5deg)
+			transform-origin 50% bottom
+			sw 0
+			background-image: -o-linear-gradient(90deg, #FFFFFF 0%, #E1E1E1 100%);
+			background-image: -moz-linear-gradient(90deg, #FFFFFF 0%, #E1E1E1 100%);
+			background-image: -webkit-linear-gradient(90deg, #FFFFFF 0%, #E1E1E1 100%);
+			background-image: -ms-linear-gradient(90deg, #FFFFFF 0%, #E1E1E1 100%);
+			background-image: linear-gradient(0deg, #FFFFFF 0%, #E1E1E1 100%);
+			&:after
+				transform rotate(180deg)
+				opacity .01
+		&--top, &--bottom
+			height 360px
+			width 100%
+
+
+.text
+	fill white
+	font-size 22px
+	white-space nowrap
+	font-family 'Open Sans'
+	text-transform uppercase
+	&--label
+		font-size 13px
+
+
+.svg-container
+	padding-bottom 70.3125%
+	position relative
+	&__content
+		position absolute
+		rect 100%
+		overflow hidden
+		svg 
+			rect 100%
+
