@@ -14,7 +14,7 @@ body, html
   height 100%
 
 color = #FC46AD
-pieGraphSize = 200px
+pieGraphSize = 100px
 .pie-graph
   border-radius 50%
   width pieGraphSize
@@ -25,17 +25,16 @@ pieGraphSize = 200px
   margin-top -(pieGraphSize/2)
   display block
   transform rotate(-90deg)
-  hl green
 
 PI = 3.141598
 .slice
-  stroke-width 20px
+  stroke-width 40px
   fill none
-  stroke-dasharray (2*PI*40)px
+  stroke-dasharray (2*PI*20)px
   cursor pointer
   transition all .25s cubic-bezier(0.735, 1.650, 0.650, 0.770)
   &:hover
-    stroke-width 25px
+    stroke-width 42px
   &--1
     stroke color
     &:hover
