@@ -6,7 +6,9 @@
       this.vars();
     }
 
-    Main.prototype.vars = function() {};
+    Main.prototype.vars = function() {
+      return this.container = document.getElementById('js-pie-graph');
+    };
 
     return Main;
 
