@@ -25,6 +25,7 @@ pieGraphSize = 200px
   margin-top -(pieGraphSize/2)
   display block
   transform rotate(-90deg)
+  hl green
 
 PI = 3.141598
 .slice
@@ -32,9 +33,11 @@ PI = 3.141598
   fill none
   stroke-dasharray (2*PI*40)px
   cursor pointer
+  transition all .25s cubic-bezier(0.735, 1.650, 0.650, 0.770)
+  &:hover
+    stroke-width 25px
   &--1
     stroke color
-    stroke-dashoffset (2*PI*15)px
     &:hover
       stroke darken(color, 4)
   &--2
