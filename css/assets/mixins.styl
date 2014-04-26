@@ -4,6 +4,13 @@ br = 3px
 PX = (1/16)em
 sec = 1s
 
+replace-in-selector($what, $with = '')
+  /{replace($what, $with , selector())}
+    {block}
+ 
+root-selector()
+  +replace-in-selector('^(\S+)(--|__|\s|::?).+$', '$1')
+    {block}
 
 perspective()
 	-webkit-perspective arguments

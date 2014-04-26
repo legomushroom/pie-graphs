@@ -1,4 +1,4 @@
-Use case example for [paper peel effect](http://blog.legomushroom.com/2014/04/paper-peel-effect/)
+Use case example for []()
 blog post.
 
 ---------------------
